@@ -10,15 +10,9 @@
     tools:context="com.example.teacher.test.MainActivity">
 
     <Button
-        android:id="@+id/btnTest1"
+        android:id="@+id/btnIntent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="明示的インテント"/>
+        android:text="intentサンプル"/>
 
-    <Button
-        android:id="@+id/btnTest2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/btnTest1"
-        android:text="暗黙的インテント（電話）"/>
 </RelativeLayout>

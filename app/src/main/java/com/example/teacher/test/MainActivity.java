@@ -13,8 +13,7 @@ import com.example.teacher.test.util.LogUtil;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button mBtnTest1;
-    private Button mBtnTest2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,26 +22,16 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(this,"onCreate",Toast.LENGTH_SHORT).show();
         LogUtil.i("MainActivity","onCreate");
 
-        // 明示的インテント
-        mBtnTest1 = (Button) findViewById(R.id.btnTest1);
-        mBtnTest1.setOnClickListener(new View.OnClickListener() {
+        // インテントサービス
+        Button intent = (Button) findViewById(R.id.btnIntent);
+        intent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,SampleActivity.class);
+                Intent intent = new Intent(MainActivity.this,IntentActivity.class);
                 startActivity(intent);
             }
         });
 
-        // 暗黙的インテント
-        mBtnTest2 = (Button) findViewById(R.id.btnTest2);
-        mBtnTest2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Uri uri = Uri.parse("tel:090-222-333");
-                Intent intent=new Intent(Intent.ACTION_DIAL,uri);
-                startActivity(intent);
-            }
-        });
 
 
     }
