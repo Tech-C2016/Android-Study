@@ -9,10 +9,25 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.teacher.test.SampleActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="sample"
-        android:layout_centerInParent="true"/>
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_centerInParent="true">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="返す値："/>
+        <EditText
+            android:id="@+id/editReturn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/btnDo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OK"/>
+    </LinearLayout>
 
 </RelativeLayout>

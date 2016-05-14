@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,7 +7,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.teacher.test.IntentActivity">
+    tools:context="com.example.teacher.test.IntentActivity"
+    android:orientation="vertical">
 
     <Button
         android:id="@+id/btnTest1"
@@ -25,6 +26,5 @@
         android:id="@+id/btnTest2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btnTest1"
         android:text="暗黙的インテント（電話）" />
-</RelativeLayout>
+</LinearLayout>

@@ -11,28 +11,28 @@ import android.widget.Toast;
 
 import com.example.teacher.test.util.LogUtil;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 public class MainActivity extends AppCompatActivity {
 
+
+    // インテントサービス
+    @OnClick(R.id.btnIntent)
+    void onBtnIntent(){
+        Intent intent = new Intent(MainActivity.this,IntentActivity.class);
+        startActivity(intent);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
 
         Toast.makeText(this,"onCreate",Toast.LENGTH_SHORT).show();
         LogUtil.i("MainActivity","onCreate");
-
-        // インテントサービス
-        Button intent = (Button) findViewById(R.id.btnIntent);
-        intent.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,IntentActivity.class);
-                startActivity(intent);
-            }
-        });
-
-
 
     }
 

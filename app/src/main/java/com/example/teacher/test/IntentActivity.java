@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class IntentActivity extends AppCompatActivity {
 
@@ -59,7 +60,10 @@ public class IntentActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if(resultCode == RESULT_OK){
             if(requestCode == REQUEST_CODE_FOR_SAMPLE){
-
+                if(data != null && data.getExtras() != null){
+                    String value = data.getStringExtra("returnKey");
+                    Toast.makeText(IntentActivity.this,value,Toast.LENGTH_LONG).show();
+                }
             }
         }
     }
