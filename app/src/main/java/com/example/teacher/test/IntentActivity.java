@@ -8,51 +8,40 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import butterknife.OnClick;
+
 public class IntentActivity extends AppCompatActivity {
 
     private final int REQUEST_CODE_FOR_SAMPLE = 1;
 
-    private Button mBtnTest1;
-    private Button mBtnTest2;
-    private Button mBtnTest3;
+    // 明示的インテント(値を渡す) A → B
+    @OnClick(R.id.btnTest1)
+    void onBtnTest1(){
+        Intent intent = new Intent(IntentActivity.this,SampleActivity.class);
+        intent.putExtra(SampleActivity.EXTRA_HELLO_STRING,"hello world");
+        startActivity(intent);
+    }
+
+    // 暗黙的インテント
+    @OnClick(R.id.btnTest2)
+    void onBtnTest2(){
+        Uri uri = Uri.parse("tel:090-222-333");
+        Intent intent=new Intent(Intent.ACTION_DIAL,uri);
+        startActivity(intent);
+    }
+
+    // 明示的インテント（値を渡し、且つ値を戻す）A → B → 元A
+    @OnClick(R.id.btnTest3)
+    void onBtnTest3(){
+        Intent intent = new Intent(IntentActivity.this,SampleActivity.class);
+        intent.putExtra(SampleActivity.EXTRA_HELLO_STRING,"hello world");
+        startActivityForResult(intent,REQUEST_CODE_FOR_SAMPLE);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intent);
-
-        // 明示的インテント(値を渡す) A → B
-        mBtnTest1 = (Button) findViewById(R.id.btnTest1);
-        mBtnTest1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(IntentActivity.this,SampleActivity.class);
-                intent.putExtra(SampleActivity.EXTRA_HELLO_STRING,"hello world");
-                startActivity(intent);
-            }
-        });
-
-        // 明示的インテント（値を渡し、且つ値を戻す）A → B → 元A
-        mBtnTest3 = (Button) findViewById(R.id.btnTest3);
-        mBtnTest3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(IntentActivity.this,SampleActivity.class);
-                intent.putExtra(SampleActivity.EXTRA_HELLO_STRING,"hello world");
-                startActivityForResult(intent,REQUEST_CODE_FOR_SAMPLE);
-            }
-        });
-
-        // 暗黙的インテント
-        mBtnTest2 = (Button) findViewById(R.id.btnTest2);
-        mBtnTest2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Uri uri = Uri.parse("tel:090-222-333");
-                Intent intent=new Intent(Intent.ACTION_DIAL,uri);
-                startActivity(intent);
-            }
-        });
     }
 
     @Override

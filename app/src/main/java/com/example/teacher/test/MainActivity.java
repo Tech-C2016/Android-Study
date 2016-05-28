@@ -25,6 +25,13 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    // UI(レイアウト)
+    @OnClick(R.id.btnUI)
+    void onBtnUI(){
+        Intent intent = new Intent(MainActivity.this,UIActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

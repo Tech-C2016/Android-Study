@@ -8,9 +8,23 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import butterknife.BindView;
+import butterknife.OnClick;
+
 public class SampleActivity extends AppCompatActivity {
 
     public static final String EXTRA_HELLO_STRING = "EXTRA_HELLO_STRING";
+
+    @BindView(R.id.editReturn)
+    Button mEditText;
+
+    @OnClick(R.id.btnDo)
+    void onDo(){
+        Intent intent = new Intent();
+        intent.putExtra("returnKey","返り値：" + mEditText.getText().toString());
+        setResult(RESULT_OK,intent);
+        finish();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,18 +37,6 @@ public class SampleActivity extends AppCompatActivity {
             extraString = intent.getExtras().getString(EXTRA_HELLO_STRING);
             Toast.makeText(this, extraString, Toast.LENGTH_SHORT).show();
         }
-
-        final EditText editText = (EditText) findViewById(R.id.editReturn);
-        Button btnDo = (Button) findViewById(R.id.btnDo);
-        btnDo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.putExtra("returnKey","返り値：" + editText.getText().toString());
-                setResult(RESULT_OK,intent);
-                finish();
-            }
-        });
 
     }
 }
