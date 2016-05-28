@@ -11,7 +11,7 @@ import android.widget.Toast;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class SampleActivity extends AppCompatActivity {
+public class SampleActivity extends BaseActivity {
 
     public static final String EXTRA_HELLO_STRING = "EXTRA_HELLO_STRING";
 

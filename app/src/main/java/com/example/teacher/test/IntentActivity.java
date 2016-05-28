@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import butterknife.OnClick;
 
-public class IntentActivity extends AppCompatActivity {
+public class IntentActivity extends BaseActivity {
 
     private final int REQUEST_CODE_FOR_SAMPLE = 1;
 

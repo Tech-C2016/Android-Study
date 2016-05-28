@@ -15,7 +15,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
 
     // インテントサービス
@@ -29,6 +29,13 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.btnUI)
     void onBtnUI(){
         Intent intent = new Intent(MainActivity.this,UIActivity.class);
+        startActivity(intent);
+    }
+
+    // ListView
+    @OnClick(R.id.btnListView)
+    void onBtnListView(){
+        Intent intent = new Intent(MainActivity.this,ListViewActivity.class);
         startActivity(intent);
     }
 
