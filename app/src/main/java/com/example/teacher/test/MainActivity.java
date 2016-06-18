@@ -39,6 +39,13 @@ public class MainActivity extends BaseActivity {
         startActivity(intent);
     }
 
+    // ListView
+    @OnClick(R.id.btnSqliteView)
+    void onBtnSqliteView(){
+        Intent intent = new Intent(MainActivity.this,SQLiteActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

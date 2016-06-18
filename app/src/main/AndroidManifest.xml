@@ -18,7 +18,8 @@
         <activity android:name=".SampleActivity" />
         <activity android:name=".IntentActivity" />
         <activity android:name=".UIActivity" />
-        <activity android:name=".ListViewActivity"></activity>
+        <activity android:name=".ListViewActivity" />
+        <activity android:name=".SQLiteActivity"></activity>
     </application>
 
 </manifest>

@@ -40,7 +40,7 @@ public class ListViewActivity extends BaseActivity {
         final List<CustomerDto> lst = createTestCustomer();
 
         // Adapterへリストのバインド
-        CustomerAdapter adapter = new CustomerAdapter(this);
+        final CustomerAdapter adapter = new CustomerAdapter(this);
 
         // Adapterへリストを追加
         adapter.add(lst);
@@ -70,6 +70,22 @@ public class ListViewActivity extends BaseActivity {
             @Override
             public void onRefresh() {
 
+                // Adapterをクリア
+                adapter.listClear();
+
+                // Adapterへリストのバインド
+                CustomerAdapter adapter = new CustomerAdapter(ListViewActivity.this);
+
+                // Adapterへリストを追加
+                adapter.add(createTestCustomer());
+
+                // ListviewにAdapterを設定
+                mLvSample.setAdapter(adapter);
+
+                // プログレスstop
+                if(mSwipeListSample.isRefreshing()){
+                    mSwipeListSample.setRefreshing(false);
+                }
             }
         });
     }
@@ -106,6 +122,11 @@ public class ListViewActivity extends BaseActivity {
             for(CustomerDto dto : lst){
                 _lst.add(dto);
             }
+            notifyDataSetChanged();
+        }
+
+        public void listClear(){
+            _lst.clear();
             notifyDataSetChanged();
         }
 
