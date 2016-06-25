@@ -20,11 +20,11 @@ public class CreateProductHelper extends SQLiteOpenHelper {
         db.execSQL(UserHelper.USERS_SQL);
 
         // サンプルデータ
-        db.execSQL("insert into users(id,name,address,tel) values (1,'suzuki','tokyo','080-0000-0000')");
-        db.execSQL("insert into users(id,name,address,tel) values (2,'tanaka','saitama','080-1234-0000')");
-        db.execSQL("insert into users(id,name,address,tel) values (3,'okabe','tochigi','080-3333-0000')");
-        db.execSQL("insert into users(id,name,address,tel) values (4,'matsumoto','kagawa','080-2222-0000')");
-        db.execSQL("insert into users(id,name,address,tel) values (5,'nirei','kanagawa','080-0999-0000')");
+//        db.execSQL("insert into users(id,name,address,tel) values (1,'suzuki','tokyo','080-0000-0000')");
+//        db.execSQL("insert into users(id,name,address,tel) values (2,'tanaka','saitama','080-1234-0000')");
+//        db.execSQL("insert into users(id,name,address,tel) values (3,'okabe','tochigi','080-3333-0000')");
+//        db.execSQL("insert into users(id,name,address,tel) values (4,'matsumoto','kagawa','080-2222-0000')");
+//        db.execSQL("insert into users(id,name,address,tel) values (5,'nirei','kanagawa','080-0999-0000')");
     }
 
     @Override

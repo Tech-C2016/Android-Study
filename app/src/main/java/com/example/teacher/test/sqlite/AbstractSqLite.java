@@ -17,21 +17,22 @@ public abstract class AbstractSqLite {
 
     // トランザクション開始
     public void startTransaction(){
-
+        sqliteDatabase = createProductHelper.getWritableDatabase();
+        sqliteDatabase.beginTransaction();
     }
 
     // トランザクション確定
     public void commitTransaction(){
-
+        sqliteDatabase.setTransactionSuccessful();
     }
 
     // トランザクション終了
     public void endTransaction(){
-
+        sqliteDatabase.endTransaction();
     }
 
     // DBインスタンス解放
     public void close(){
-
+        sqliteDatabase.close();
     }
 }

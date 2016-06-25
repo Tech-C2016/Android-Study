@@ -1,8 +1,10 @@
 package com.example.teacher.test.sqlite;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
 
 import com.example.teacher.test.dto.UserDto;
 
@@ -32,6 +34,10 @@ public class UserHelper extends AbstractSqLite {
         super(context);
     }
 
+    public List<UserDto> select() {
+        return select(null);
+    }
+
     public List<UserDto> select(String where) {
 
         List<UserDto> lst = new ArrayList<>();
@@ -40,7 +46,7 @@ public class UserHelper extends AbstractSqLite {
 
         String col[] = {ID, NAME, ADDRESS, TEL};
         Cursor cursor = database.query(USER_TBL, col, where, null, null, null, ID);
-        
+
         while (cursor.moveToNext()){
             UserDto dot = new UserDto();
             dot.setId(cursor.getInt(0));
@@ -53,6 +59,32 @@ public class UserHelper extends AbstractSqLite {
         return lst;
 
     }
+
+    public void insert(String name,String address,String tel) throws SQLiteException{
+        if(sqliteDatabase == null) return;
+
+        ContentValues values = new ContentValues();
+        values.put(NAME,name);
+        values.put(ADDRESS,address);
+        values.put(TEL,tel);
+
+        sqliteDatabase.insertOrThrow(USER_TBL, null, values);
+    }
+
+    public void update(String name,String address,String tel,String where,String[] whereArgs){
+        if(sqliteDatabase == null) return;
+        ContentValues values = new ContentValues();
+        values.put(NAME,name);
+        values.put(ADDRESS,address);
+        values.put(TEL,tel);
+        sqliteDatabase.update(USER_TBL,values,where,whereArgs);
+    }
+
+    public void delete(String where,String[] whereArgs){
+        if(sqliteDatabase == null) return;
+        sqliteDatabase.delete(USER_TBL,where,whereArgs);
+    }
+
 
 
 }
