@@ -24,7 +24,9 @@
 
         <service
             android:name=".StartService"
-            android:exported="false"></service>
+            android:exported="false" />
+
+        <activity android:name=".DialogActivity"></activity>
     </application>
 
 </manifest>

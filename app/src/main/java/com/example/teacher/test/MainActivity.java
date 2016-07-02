@@ -53,6 +53,13 @@ public class MainActivity extends BaseActivity {
         startActivity(intent);
     }
 
+    // Dialog
+    @OnClick(R.id.btnDialog)
+    void onBtnDialog(){
+        Intent intent = new Intent(MainActivity.this,DialogActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
