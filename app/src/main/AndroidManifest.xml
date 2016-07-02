@@ -19,7 +19,12 @@
         <activity android:name=".IntentActivity" />
         <activity android:name=".UIActivity" />
         <activity android:name=".ListViewActivity" />
-        <activity android:name=".SQLiteActivity"></activity>
+        <activity android:name=".SQLiteActivity" />
+        <activity android:name=".ServiceActivity" />
+
+        <service
+            android:name=".StartService"
+            android:exported="false"></service>
     </application>
 
 </manifest>

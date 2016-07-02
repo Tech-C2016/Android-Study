@@ -39,10 +39,17 @@ public class MainActivity extends BaseActivity {
         startActivity(intent);
     }
 
-    // ListView
-    @OnClick(R.id.btnSqliteView)
-    void onBtnSqliteView(){
+    // Sqlite
+    @OnClick(R.id.btnSqlite)
+    void onBtnSqlite(){
         Intent intent = new Intent(MainActivity.this,SQLiteActivity.class);
+        startActivity(intent);
+    }
+
+    // Service
+    @OnClick(R.id.btnService)
+    void onBtnService(){
+        Intent intent = new Intent(MainActivity.this,ServiceActivity.class);
         startActivity(intent);
     }
 

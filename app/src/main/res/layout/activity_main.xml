@@ -26,8 +26,13 @@
         android:layout_height="wrap_content"
         android:text="ListView"/>
     <Button
-        android:id="@+id/btnSqliteView"
+        android:id="@+id/btnSqlite"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="SQLite"/>
+    <Button
+        android:id="@+id/btnService"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Service"/>
 </LinearLayout>
