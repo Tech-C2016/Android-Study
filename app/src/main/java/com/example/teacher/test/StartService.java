@@ -25,15 +25,15 @@ public class StartService extends Service {
             if(mCountTime == mCountTimeMax){
                 stopSelf();
             }else{
-                // スレッドの中でUIの操作をできない →対応はhandlerでできる。
-                Toast.makeText(StartService.this, mCountTime + "秒経過",Toast.LENGTH_SHORT).show();
+                // スレッドの中でUIの操作をできない →対応はhandlerでスレッドをかえす。
+                mHandler.sendMessage(Message.obtain(mHandler,0,mCountTime + "秒経過"));
             }
         }
     };
 
     private Handler mHandler = new Handler(){
         public void handleMessage (Message msg){
-
+            Toast.makeText(StartService.this, (String)msg.obj ,Toast.LENGTH_SHORT).show();
         }
     };
 
@@ -56,7 +56,7 @@ public class StartService extends Service {
 
         Toast.makeText(this,"サービスを開始",Toast.LENGTH_SHORT).show();
 
-        mTimer.schedule(mTask,5000);
+        mTimer.schedule(mTask,5000,5000);
 
         return super.onStartCommand(intent, flags, startId);
     }
