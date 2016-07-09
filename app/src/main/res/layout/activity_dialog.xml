@@ -22,4 +22,16 @@
         android:layout_height="wrap_content"
         android:text="単一選択可能なダイアログ"/>
 
+    <Button
+        android:id="@+id/btnDateDialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="日付ダイアログ"/>
+
+    <Button
+        android:id="@+id/btnTimeDialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="時間ダイアログ"/>
+
 </LinearLayout>

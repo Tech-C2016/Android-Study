@@ -1,11 +1,17 @@
 package com.example.teacher.test;
 
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.DatePicker;
+import android.widget.TimePicker;
 import android.widget.Toast;
+
+import java.util.Calendar;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -49,6 +55,38 @@ public class DialogActivity extends BaseActivity {
                 Toast.makeText(DialogActivity.this,"選択：" + choiceItems[cwhich],Toast.LENGTH_LONG).show();
             }
         });
+        dialog.show();
+    }
+
+    @OnClick(R.id.btnDateDialog)
+    void onBtnDateDialog(){
+        Calendar calendar = Calendar.getInstance();
+
+        DatePickerDialog dialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                Toast.makeText(DialogActivity.this,
+                        "日付:" + year + "/" + monthOfYear + "/" + dayOfMonth,
+                        Toast.LENGTH_LONG).show();
+            }
+        }, calendar.get(Calendar.YEAR)
+        , calendar.get(Calendar.MONTH)
+        , calendar.get(Calendar.DAY_OF_MONTH));
+        dialog.show();
+    }
+
+    @OnClick(R.id.btnTimeDialog)
+    void onBtnTimeDialog(){
+        TimePickerDialog dialog = new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                Toast.makeText(DialogActivity.this,
+                        "時間:" + hourOfDay + ":" + minute,
+                        Toast.LENGTH_LONG).show();
+            }
+        },0
+        ,0
+        ,true);
         dialog.show();
     }
 
